@@ -18,7 +18,7 @@ let temporizador = 1500 // 1500 segundos = 25 minutos
 let intervalo = null
 
 btFoco.addEventListener('click', () => {
-  temporizador = 1500
+  temporizador = 2
   alterarContexto('foco')
   btFoco.classList.add('active')
 })
@@ -49,6 +49,14 @@ const contagemRegressiva = () => {
   if (temporizador <=0){
     fim.play()
     alert('Tempo finalizado')
+
+    // criando um evento customizado de tarefa finalizada
+    const focoAtivo = html.getAttribute('data-contexto') == 'foco'
+    if(focoAtivo){
+      const evento = new CustomEvent('focoFinalizado')
+      document.dispatchEvent(evento)
+    }
+
     zerar()
     return
   }

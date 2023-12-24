@@ -15,7 +15,6 @@ const btComecarPausar = document.querySelector('#start-pause span')
 const btImage = document.querySelector('#start-pause img')
 const timer = document.querySelector('#timer')
 let temporizador = 1500 // 1500 segundos = 25 minutos
-
 let intervalo = null
 
 btFoco.addEventListener('click', () => {
